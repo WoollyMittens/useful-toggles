@@ -1,0 +1,120 @@
+/*
+	Example Styling for a Tabbed Panel
+*/
+
+@media all {
+
+	@import "compass/css3";
+	@import "compass/utilities";
+
+	/* Tab Contents */
+	section.tabs {
+		@include background(linear-gradient(top, #fff 0%, #fff 75%, #ccc 100%));
+		background-color : #fff;
+		border : solid 1px #333;
+		border-radius : 0 3px 3px 3px;
+		margin : 29px 0 1em 0;
+		padding : 0;
+		position : relative;
+		z-index : 100;
+	}
+
+	/* Tab Links */
+	section.tabs {
+		menu {
+			height : 30px;
+			left : -1px;
+			margin : 0;
+			padding : 0;
+			position : absolute;
+			top : -30px;
+			z-index : 110;
+			li {
+				display : inline;
+				list-style-type : none;
+				a {
+					@include background(linear-gradient(top, #fff 0%, #fff 3%, #ccc 3%, #999 97%, #999 97%, #999 100%));
+					@include border-radius(3px 3px 0 0);
+					@include transition-property(all);
+					@include transition-duration(0.3s);
+					@include transition-timing-function(ease);
+					background-color : #ccc;
+					border : solid 1px #333;
+					border-bottom : none;
+					color : #333 !important;
+					float : left;
+					height : 28px;
+					line-height : 28px;
+					margin : 0 5px 0 0;
+					padding : 0 10px 0 10px;
+					text-decoration : none !important;
+					text-shadow: #ccc 1px 1px 0;
+				}
+				a.tabs_passive {
+					@include background(linear-gradient(top, #fff 0%, #fff 3%, #ccc 3%, #999 97%, #999 97%, #999 100%));
+					background-color : #ccc;
+					color : #333 !important;
+					height : 28px;
+				}
+				a.tabs_passive:hover {
+					@include background(linear-gradient(top, #ccc 0%, #ccc 3%, #999 3%, #ccc 97%, #ccc 97%, #ccc 100%));
+					background-color : #999;
+					color : #000 !important;
+				}
+				a.tabs_active,
+				a.tabs_active:hover {
+					@include background(linear-gradient(top, #fff 0%, #fff 3%, #ccc 3%, #fff 97%, #fff 97%, #fff 100%));
+					background-color : #fff;
+					color : #000 !important;
+					height : 29px;
+				}
+			}
+		}
+	}
+
+	/* Individual Tabs */
+	section.tabs {
+		article {
+			@include transition-property(all);
+			@include transition-duration(0.3s);
+			@include transition-timing-function(ease);
+			display : block;
+			margin : 0;
+			left : 0;
+			padding : 1em 2% 1em 2%;
+			top : 0;
+			width : 96%;
+			img.left {
+				float : left;
+				margin : 0 1em 1em 0;
+			}
+			img.right {
+				float : right;
+				margin : 0 0 1em 1em;
+			}
+		}
+		.tabs_closed {
+			@include opacity(0);
+			position : absolute;
+			visibility : hidden;
+		}
+		.tabs_open {
+			@include opacity(1);
+			position : relative;
+			visibility : visible;
+		}
+	}
+
+}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 980px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 979px) {}
+
+@media (max-width: 767px) {}
+
+@media (max-width: 480px) {}
+
+@media print {}

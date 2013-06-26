@@ -1,0 +1,88 @@
+/*
+	Example Styling for an Accordion List
+*/
+@media all {
+  /* Accordion List */
+  dl.accordion {
+    margin: 0 0 1em 0;
+  }
+  dl.accordion dt {
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #ffffff), color-stop(3%, #cccccc), color-stop(97%, #999999), color-stop(97%, #666666), color-stop(100%, #666666));
+    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
+    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
+    background: -o-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
+    background: linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
+    -webkit-box-shadow: 0 1px 3px #999999;
+    -moz-box-shadow: 0 1px 3px #999999;
+    box-shadow: 0 1px 3px #999999;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #ccc;
+    border: solid 1px black;
+    color: #333333 !important;
+    cursor: pointer;
+    display: block;
+    font-weight: normal;
+    margin: 0;
+    overflow: visible;
+    padding: 0 15px 1px 15px;
+    *padding: 0 15px 2px 15px;
+    text-shadow: #cccccc 1px 1px 0;
+    text-decoration: none !important;
+  }
+  dl.accordion dt.accordion_active, dl.accordion dt:hover {
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cccccc), color-stop(3%, #cccccc), color-stop(3%, #999999), color-stop(97%, #cccccc), color-stop(97%, #333333), color-stop(100%, #666666));
+    background: -webkit-linear-gradient(top, #cccccc 0%, #cccccc 3%, #999999 3%, #cccccc 97%, #333333 97%, #666666 100%);
+    background: -moz-linear-gradient(top, #cccccc 0%, #cccccc 3%, #999999 3%, #cccccc 97%, #333333 97%, #666666 100%);
+    background: -o-linear-gradient(top, #cccccc 0%, #cccccc 3%, #999999 3%, #cccccc 97%, #333333 97%, #666666 100%);
+    background: linear-gradient(top, #cccccc 0%, #cccccc 3%, #999999 3%, #cccccc 97%, #333333 97%, #666666 100%);
+    -webkit-box-shadow: 0 1px 2px #999999;
+    -moz-box-shadow: 0 1px 2px #999999;
+    box-shadow: 0 1px 2px #999999;
+    background-color: #999;
+    color: black !important;
+  }
+  dl.accordion dt.accordion_passive, dl.accordion dt.accordion_active {
+    cursor: pointer;
+  }
+  dl.accordion dd {
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+    display: block;
+    height: 1%;
+    margin: 0;
+    overflow: hidden;
+    padding: 1em 0 1em 0;
+  }
+  dl.accordion dd img.left {
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+  dl.accordion dd img.right {
+    float: right;
+    margin: 0 0 1em 1em;
+  }
+  dl.accordion dd.accordion_closed {
+    max-height: 1px;
+    padding: 2px 0 2px 0;
+    visibility: hidden;
+  }
+  dl.accordion dd.accordion_open {
+    max-height: 1000px;
+    padding: 1em 0 1em 0;
+    visibility: visible;
+  }
+}
