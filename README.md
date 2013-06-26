@@ -54,15 +54,25 @@ useful.toggles.setup(parent, {
 ```
 
 **id : {string}** - The ID attribute of an element somewhere in the document.
+
 **parent : {DOM node}** - The DOM element around which the functionality is centred.
+
 **links : {string}** - A CSS Rule that describes the toggle buttons within *parent*.
+
 **grouped : {boolean}** - Determines if opening one content area, causes the rest to close.
+
 **toggle : {boolean}** - Determines if content areas can be closed as well as opened by the same button.
+
 **index : {integer}** - Controls which toggle is active by default.
+
 **auto : {integer}** (not implemented yet) - The interval in milliseconds of the automatic cycle.
+
 **active : {string}** - The class name used to highlight toggle buttons.
+
 **passive : {string}** - The class name used for the default state of the toggle buttons.
+
 **open : {string}** - The class name that displays the content in an open state.
+
 **closed' : {string}** - The class name that displays the content in a closed state.
 
 ### Using document.querySelectorAll
@@ -89,7 +99,9 @@ useful.css.select({
 ```
 
 **rule : {string}** - The CSS Rule for the intended target(s) of the script.
+
 **handler : {function}** - The public function that starts the script.
+
 **data : {object}** - Name-value pairs with configuration data.
 
 ### Using jQuery
