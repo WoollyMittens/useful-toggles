@@ -2,6 +2,8 @@
 
 A collapsing "accordion" list to be used as an FAQ and a collection of content grouped together into tabs.
 
+Try the <a href="http://www.woollymittens.nl/useful/default.php?url=toggles">toggles demo</a>.
+
 ## How to use the script
 
 The stylesheet is best included in the header of the document.

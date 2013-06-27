@@ -228,7 +228,6 @@
 			return elements;
 		}
 	};
-	// checks the compatibility of CSS3 transitions for this browser
 	useful.css.compatibility = function () {
 		var eventName, newDiv, empty;
 		// create a test div
@@ -243,8 +242,6 @@
 		// pass back working event name
 		return eventName;
 	};
-
-	// performs a transition between two classnames
 	useful.css.setClass = function (element, removedClass, addedClass, endEventHandler, jQueryDuration, jQueryEasing) {
 		var replaceThis, replaceWith, endEventName, endEventFunction;
 		// validate the input
