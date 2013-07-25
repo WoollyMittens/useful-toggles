@@ -2,7 +2,9 @@
 	Example Styling for a Tabbed Panel
 */
 @media all {
-  /* Tab Contents */
+  /*
+  	Tab Contents
+  */
   section.tabs {
     background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(75%, #ffffff), color-stop(100%, #cccccc));
     background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 75%, #cccccc 100%);
@@ -10,15 +12,22 @@
     background: -o-linear-gradient(top, #ffffff 0%, #ffffff 75%, #cccccc 100%);
     background: linear-gradient(top, #ffffff 0%, #ffffff 75%, #cccccc 100%);
     background-color: #fff;
-    border: solid 1px #333333;
+    border: solid 1px #333;
     border-radius: 0 3px 3px 3px;
     margin: 29px 0 1em 0;
     padding: 0;
     position: relative;
     z-index: 100;
   }
+  section.tabs * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 
-  /* Tab Links */
+  /*
+  	Tab Links
+  */
   section.tabs menu {
     height: 30px;
     left: -1px;
@@ -56,16 +65,16 @@
     -o-transition-timing-function: ease;
     transition-timing-function: ease;
     background-color: #ccc;
-    border: solid 1px #333333;
+    border: solid 1px #333;
     border-bottom: none;
-    color: #333333 !important;
+    color: #333 !important;
     float: left;
-    height: 28px;
+    height: 29px;
     line-height: 28px;
     margin: 0 5px 0 0;
     padding: 0 10px 0 10px;
     text-decoration: none !important;
-    text-shadow: #cccccc 1px 1px 0;
+    text-shadow: #ccc 1px 1px 0;
   }
   section.tabs menu li a.tabs_passive {
     background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #ffffff), color-stop(3%, #cccccc), color-stop(97%, #999999), color-stop(97%, #999999), color-stop(100%, #999999));
@@ -74,8 +83,8 @@
     background: -o-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #999999 97%, #999999 100%);
     background: linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #999999 97%, #999999 100%);
     background-color: #ccc;
-    color: #333333 !important;
-    height: 28px;
+    color: #333 !important;
+    height: 29px;
   }
   section.tabs menu li a.tabs_passive:hover {
     background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #cccccc), color-stop(3%, #cccccc), color-stop(3%, #999999), color-stop(97%, #cccccc), color-stop(97%, #cccccc), color-stop(100%, #cccccc));
@@ -84,7 +93,7 @@
     background: -o-linear-gradient(top, #cccccc 0%, #cccccc 3%, #999999 3%, #cccccc 97%, #cccccc 97%, #cccccc 100%);
     background: linear-gradient(top, #cccccc 0%, #cccccc 3%, #999999 3%, #cccccc 97%, #cccccc 97%, #cccccc 100%);
     background-color: #999;
-    color: black !important;
+    color: #000 !important;
   }
   section.tabs menu li a.tabs_active,
   section.tabs menu li a.tabs_active:hover {
@@ -94,11 +103,13 @@
     background: -o-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #ffffff 97%, #ffffff 97%, #ffffff 100%);
     background: linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #ffffff 97%, #ffffff 97%, #ffffff 100%);
     background-color: #fff;
-    color: black !important;
-    height: 29px;
+    color: #000 !important;
+    height: 30px;
   }
 
-  /* Individual Tabs */
+  /*
+  	Individual Tabs
+  */
   section.tabs article {
     -webkit-transition-property: all;
     -moz-transition-property: all;
@@ -117,7 +128,7 @@
     left: 0;
     padding: 1em 2% 1em 2%;
     top: 0;
-    width: 96%;
+    width: 100%;
   }
   section.tabs article img.left {
     float: left;

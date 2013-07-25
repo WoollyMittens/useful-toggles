@@ -1,13 +1,12 @@
 /*
 	Example Styling for a Tabbed Panel
 */
-
 @media all {
-
 	@import "compass/css3";
 	@import "compass/utilities";
-
-	/* Tab Contents */
+	/*
+		Tab Contents
+	*/
 	section.tabs {
 		@include background(linear-gradient(top, #fff 0%, #fff 75%, #ccc 100%));
 		background-color : #fff;
@@ -17,9 +16,13 @@
 		padding : 0;
 		position : relative;
 		z-index : 100;
+		* {
+			@include box-sizing(border-box);
+		}
 	}
-
-	/* Tab Links */
+	/*
+		Tab Links
+	*/
 	section.tabs {
 		menu {
 			height : 30px;
@@ -43,7 +46,7 @@
 					border-bottom : none;
 					color : #333 !important;
 					float : left;
-					height : 28px;
+					height : 29px;
 					line-height : 28px;
 					margin : 0 5px 0 0;
 					padding : 0 10px 0 10px;
@@ -54,7 +57,7 @@
 					@include background(linear-gradient(top, #fff 0%, #fff 3%, #ccc 3%, #999 97%, #999 97%, #999 100%));
 					background-color : #ccc;
 					color : #333 !important;
-					height : 28px;
+					height : 29px;
 				}
 				a.tabs_passive:hover {
 					@include background(linear-gradient(top, #ccc 0%, #ccc 3%, #999 3%, #ccc 97%, #ccc 97%, #ccc 100%));
@@ -66,13 +69,14 @@
 					@include background(linear-gradient(top, #fff 0%, #fff 3%, #ccc 3%, #fff 97%, #fff 97%, #fff 100%));
 					background-color : #fff;
 					color : #000 !important;
-					height : 29px;
+					height : 30px;
 				}
 			}
 		}
 	}
-
-	/* Individual Tabs */
+	/*
+		Individual Tabs
+	*/
 	section.tabs {
 		article {
 			@include transition-property(all);
@@ -83,7 +87,7 @@
 			left : 0;
 			padding : 1em 2% 1em 2%;
 			top : 0;
-			width : 96%;
+			width : 100%;
 			img.left {
 				float : left;
 				margin : 0 1em 1em 0;
@@ -104,17 +108,10 @@
 			visibility : visible;
 		}
 	}
-
 }
-
 @media (min-width: 1200px) {}
-
 @media (min-width: 980px) and (max-width: 1199px) {}
-
 @media (min-width: 768px) and (max-width: 979px) {}
-
 @media (max-width: 767px) {}
-
 @media (max-width: 480px) {}
-
 @media print {}

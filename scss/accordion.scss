@@ -1,16 +1,15 @@
 /*
 	Example Styling for an Accordion List
 */
-
 @media all {
-
 	@import "compass/css3";
 	@import "compass/utilities";
-
 	/* Accordion List */
 	dl.accordion {
 		margin : 0 0 1em 0;
-
+		* {
+			@include box-sizing(border-box);
+		}
 		dt {
 			@include background(linear-gradient(top, #fff 0%, #fff 3%, #ccc 3%, #999 97%, #666 97%, #666 100%));
 			@include box-shadow(0 1px 3px #999);
@@ -23,8 +22,8 @@
 			font-weight : normal;
 			margin : 0;
 			overflow : visible;
-			padding : 0 15px 1px 15px;
-			*padding : 0 15px 2px 15px;
+			padding : 1px 15px 2px 15px;
+			*padding : 1px 15px 3px 15px;
 			text-shadow: #ccc 1px 1px 0;
 			text-decoration : none !important;
 		}
@@ -46,7 +45,6 @@
 			margin : 0;
 			overflow : hidden;
 			padding : 1em 0 1em 0;
-
 			img.left {
 				float : left;
 				margin : 0 1em 1em 0;
@@ -58,7 +56,7 @@
 			p {}
 		}
 		dd.accordion_closed {
-			max-height : 1px;
+			max-height : 0;
 			padding : 2px 0 2px 0;
 			visibility : hidden;
 		}
@@ -68,17 +66,10 @@
 			visibility : visible;
 		}
 	}
-
 }
-
 @media (min-width: 1200px) {}
-
 @media (min-width: 980px) and (max-width: 1199px) {}
-
 @media (min-width: 768px) and (max-width: 979px) {}
-
 @media (max-width: 767px) {}
-
 @media (max-width: 480px) {}
-
 @media print {}

@@ -6,6 +6,11 @@
   dl.accordion {
     margin: 0 0 1em 0;
   }
+  dl.accordion * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
   dl.accordion dt {
     background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(3%, #ffffff), color-stop(3%, #cccccc), color-stop(97%, #999999), color-stop(97%, #666666), color-stop(100%, #666666));
     background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 3%, #cccccc 3%, #999999 97%, #666666 97%, #666666 100%);
@@ -21,16 +26,16 @@
     -o-border-radius: 3px;
     border-radius: 3px;
     background-color: #ccc;
-    border: solid 1px black;
-    color: #333333 !important;
+    border: solid 1px #000;
+    color: #333 !important;
     cursor: pointer;
     display: block;
     font-weight: normal;
     margin: 0;
     overflow: visible;
-    padding: 0 15px 1px 15px;
-    *padding: 0 15px 2px 15px;
-    text-shadow: #cccccc 1px 1px 0;
+    padding: 1px 15px 2px 15px;
+    *padding: 1px 15px 3px 15px;
+    text-shadow: #ccc 1px 1px 0;
     text-decoration: none !important;
   }
   dl.accordion dt.accordion_active, dl.accordion dt:hover {
@@ -43,7 +48,7 @@
     -moz-box-shadow: 0 1px 2px #999999;
     box-shadow: 0 1px 2px #999999;
     background-color: #999;
-    color: black !important;
+    color: #000 !important;
   }
   dl.accordion dt.accordion_passive, dl.accordion dt.accordion_active {
     cursor: pointer;
@@ -76,7 +81,7 @@
     margin: 0 0 1em 1em;
   }
   dl.accordion dd.accordion_closed {
-    max-height: 1px;
+    max-height: 0;
     padding: 2px 0 2px 0;
     visibility: hidden;
   }
