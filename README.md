@@ -2,7 +2,7 @@
 
 A collapsing "accordion" list to be used as an FAQ and a collection of content grouped together into tabs.
 
-Try the <a href="http://www.woollymittens.nl/useful/default.php?url=toggles">toggles demo</a>.
+Try the <a href="http://www.woollymittens.nl/useful/default.php?url=toggles">demo</a>.
 
 ## How to use the script
 
@@ -21,7 +21,7 @@ and / or
 This include can be added to the header or placed inline before the script is invoked.
 
 ```html
-<script src="./js/useful.toggles.js"></script>
+<script src="./js/toggles.min.js"></script>
 ```
 
 To enable the use of HTML5 tags in Internet Explorer 8 and lower, include *html5.js*. To provide an alternative for *document.querySelectorAll* in Internet Explorer 8 and lower, include *jQuery*. To enable CSS3 transition animations in Internet Explorer 9 and lower, include *jQuery UI* as well.
@@ -39,8 +39,7 @@ To enable the use of HTML5 tags in Internet Explorer 8 and lower, include *html5
 This is the safest way of starting the script, but allows for only one target element at a time.
 
 ```javascript
-var parent = documentGetElementById('id');
-useful.toggles.setup(parent, {
+var toggles = new useful.Toggles( document.getElementById('id'), {
 	'buttons' : 'dt',
 	'classes' : {
 		'active' : 'accordion_active',
@@ -53,6 +52,7 @@ useful.toggles.setup(parent, {
 	'index' : -1,
 	'auto' : 8000
 });
+toggles.start();
 ```
 
 **id : {string}** - The ID attribute of an element somewhere in the document.
@@ -82,10 +82,10 @@ useful.toggles.setup(parent, {
 This method allows CSS Rules to be used to apply the script to one or more nodes at the same time.
 
 ```javascript
-useful.css.select({
-	rule : 'dl.accordion',
-	handler : useful.toggles.setup,
-	data : {
+var toggleInstances = new useful.Instances(
+	document.querySelectorAll('dl.accordion'),
+	useful.Toggles,
+	{
 		'buttons' : 'dt',
 		'classes' : {
 			'active' : 'accordion_active',
@@ -95,9 +95,11 @@ useful.css.select({
 		},
 		'grouped' : false,
 		'toggle' : true,
-		'index' : -1
+		'index' : -1,
+		'auto' : 8000
 	}
-});
+);
+toggleInstances.wait();
 ```
 
 **rule : {string}** - The CSS Rule for the intended target(s) of the script.
@@ -111,8 +113,9 @@ useful.css.select({
 This method is similar to the previous one, but uses jQuery for processing the CSS rule.
 
 ```javascript
-$('dl.accordion').each(function (index, element) {
-	useful.toggles.setup(element, {
+var toggleInstances = [];
+$('input.color').each(function (index, element) {
+	toggleInstances[index] = new useful.Toggles( element, {
 		'buttons' : 'dt',
 		'classes' : {
 			'active' : 'accordion_active',
@@ -122,10 +125,31 @@ $('dl.accordion').each(function (index, element) {
 		},
 		'grouped' : false,
 		'toggle' : true,
-		'index' : -1
+		'index' : -1,
+		'auto' : 8000
 	});
+	toggleInstances[index].start();
 });
 ```
+
+## How to control the script
+
+### Focus
+
+```javascript
+toggles.focus(index);
+```
+
+Activates a specific toggle element.
+
+**index : {integer}** - The index of the thumbnail to centre and highlight.
+
+## Prerequisites
+
+To concatenate and minify the script yourself, the following prerequisites are required:
++ https://github.com/WoollyMittens/useful-transitions
++ https://github.com/WoollyMittens/useful-interactions
++ https://github.com/WoollyMittens/useful-polyfills
 
 ## License
 This work is licensed under a Creative Commons Attribution 3.0 Unported License. The latest version of this and other scripts by the same author can be found at http://www.woollymittens.nl/
