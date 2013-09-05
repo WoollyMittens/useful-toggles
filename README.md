@@ -2,9 +2,9 @@
 
 A collapsing "accordion" list to be used as an FAQ and a collection of content grouped together into tabs.
 
-Try the <a href="http://www.woollymittens.nl/useful/default.php?url=toggles">demo</a>.
+Try the <a href="http://www.woollymittens.nl/useful/default.php?url=useful-toggles">demo</a>.
 
-## How to use the script
+## How to include the script
 
 The stylesheet is best included in the header of the document.
 
@@ -34,6 +34,8 @@ To enable the use of HTML5 tags in Internet Explorer 8 and lower, include *html5
 <![endif]-->
 ```
 
+## How to start the script
+
 ### Using vanilla JavaScript
 
 This is the safest way of starting the script, but allows for only one target element at a time.
@@ -56,8 +58,6 @@ toggles.start();
 ```
 
 **id : {string}** - The ID attribute of an element somewhere in the document.
-
-**parent : {DOM node}** - The DOM element around which the functionality is centred.
 
 **links : {string}** - A CSS Rule that describes the toggle buttons within *parent*.
 
@@ -101,12 +101,6 @@ var toggleInstances = new useful.Instances(
 );
 toggleInstances.wait();
 ```
-
-**rule : {string}** - The CSS Rule for the intended target(s) of the script.
-
-**handler : {function}** - The public function that starts the script.
-
-**data : {object}** - Name-value pairs with configuration data.
 
 ### Using jQuery
 
