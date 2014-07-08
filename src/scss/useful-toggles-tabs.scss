@@ -1,110 +1,98 @@
+@import "compass/css3";
+@import "compass/utilities";
+@import "mixins";
 /*
-	Example Styling for a Tabbed Panel
+	Tab Contents
 */
-@media all {
-	@import "compass/css3";
-	@import "compass/utilities";
-	@import "definitions";
-	@import "typography";
-	/*
-		Tab Contents
-	*/
-	section.tabs {
-		@include rems('margin', 3, 0, 1, 0);
-		position : relative;
-		* {
-			@include box-sizing(border-box);
-		}
+section.tabs {
+	@include rems('margin', 3, 0, 1, 0);
+	position : relative;
+	* {
+		@include box-sizing(border-box);
 	}
-	/*
-		Tab Links
-	*/
-	section.tabs {
-		menu {
-			@include rem('height', 3);
-			@include rem('top', -3);
-			left : 0;
-			margin : 0;
-			padding : 0;
-			position : absolute;
-			z-index : 8;
-			li {
-				display : inline;
-				list-style-type : none;
-				a {
-					@include transition-property(all);
-					@include transition-duration(0.3s);
-					@include transition-timing-function(ease);
-					@include rem('height', 3);
-					@include rem('line-height', 2.7);
-					@include rems('padding', 0, 1, 0, 1);
-					@include rems('margin', 0, 0.3, 0, 0);
-					background-color : $color-passive;
-					color : #fff !important;
-					float : left;
-					text-decoration : none !important;
-				}
-				a.tabs_passive {
-					@include rem('height', 2.7);
-					background-color : $color-passive;
-					color : #fff !important;
-				}
-				a.tabs_passive:hover {
-					background-color : $color-hover;
-					color : #fff !important;
-				}
-				a.tabs_active,
-				a.tabs_active:hover {
-					background-color : $color-active;
-					color : #fff !important;
-				}
-			}
-		}
-	}
-	/*
-		Individual Tabs
-	*/
-	section.tabs {
-		article {
-			@include transition-property(all);
-			@include transition-duration(0.3s);
-			@include transition-timing-function(ease);
-			@include rems('padding', 1, 1, 1, 1);
-			border : solid 3px $color-active;
-			display : block;
-			margin : 0;
-			position : relative;
-			left : 0;
-			top : 0;
-			width : 100%;
-			z-index : 10;
-			h3, p {
-				@include rems('margin', 0, 0, 1, 0);
-			}
-			img.left {
-				@include rems('margin', 0, 1, 1, 0);
+}
+/*
+	Tab Links
+*/
+section.tabs {
+	menu {
+		@include rem('height', 3);
+		@include rem('top', -3);
+		left : 0;
+		margin : 0;
+		padding : 0;
+		position : absolute;
+		z-index : 8;
+		li {
+			display : inline;
+			list-style-type : none;
+			a {
+				@include transition-property(all);
+				@include transition-duration(0.3s);
+				@include transition-timing-function(ease);
+				@include rem('height', 3);
+				@include rem('line-height', 2.7);
+				@include rems('padding', 0, 1, 0, 1);
+				@include rems('margin', 0, 0.3, 0, 0);
+				background-color : $color-passive;
+				color : #fff !important;
 				float : left;
+				text-decoration : none !important;
 			}
-			img.right {
-				@include rems('margin', 0, 0, 1, 1);
-				float : right;
+			a.tabs_passive {
+				@include rem('height', 2.7);
+				background-color : $color-passive;
+				color : #fff !important;
 			}
-		}
-		.tabs_closed {
-			@include opacity(0);
-			position : absolute;
-			visibility : hidden;
-		}
-		.tabs_open {
-			@include opacity(1);
-			position : relative;
-			visibility : visible;
+			a.tabs_passive:hover {
+				background-color : $color-hover;
+				color : #fff !important;
+			}
+			a.tabs_active,
+			a.tabs_active:hover {
+				background-color : $color-active;
+				color : #fff !important;
+			}
 		}
 	}
 }
-@media (min-width: 1200px) {}
-@media (min-width: 980px) and (max-width: 1199px) {}
-@media (min-width: 768px) and (max-width: 979px) {}
-@media (max-width: 767px) {}
-@media (max-width: 480px) {}
-@media print {}
+/*
+	Individual Tabs
+*/
+section.tabs {
+	article {
+		@include transition-property(all);
+		@include transition-duration(0.3s);
+		@include transition-timing-function(ease);
+		@include rems('padding', 1, 1, 1, 1);
+		border : solid 3px $color-active;
+		display : block;
+		margin : 0;
+		position : relative;
+		left : 0;
+		top : 0;
+		width : 100%;
+		z-index : 10;
+		h3, p {
+			@include rems('margin', 0, 0, 1, 0);
+		}
+		img.left {
+			@include rems('margin', 0, 1, 1, 0);
+			float : left;
+		}
+		img.right {
+			@include rems('margin', 0, 0, 1, 1);
+			float : right;
+		}
+	}
+	.tabs_closed {
+		@include opacity(0);
+		position : absolute;
+		visibility : hidden;
+	}
+	.tabs_open {
+		@include opacity(1);
+		position : relative;
+		visibility : visible;
+	}
+}

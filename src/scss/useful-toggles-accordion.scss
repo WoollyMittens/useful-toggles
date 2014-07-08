@@ -1,77 +1,65 @@
+@import "compass/css3";
+@import "compass/utilities";
+@import "mixins";
 /*
-	Example Styling for an Accordion List
+	Accordion List
 */
-@media all {
-	@import "compass/css3";
-	@import "compass/utilities";
-	@import "definitions";
-	@import "typography";
-	/*
-		Accordion List
-	*/
-	dl.accordion {
-		margin : 0 0 1em 0;
-		* {
-			@include box-sizing(border-box);
+dl.accordion {
+	margin : 0 0 1em 0;
+	* {
+		@include box-sizing(border-box);
+	}
+	dt {
+		@include rems('padding', 0, 1, 0, 1);
+		@include rems('margin', 0, 0, 0.3, 0);
+		@include rem('line-height', 3);
+		background-color : $color-passive;
+		color : #fff !important;
+		cursor : pointer;
+		display : block;
+		font-weight : normal;
+		overflow : visible;
+		text-decoration : none !important;
+	}
+	dt:hover {
+		background-color : $color-hover;
+	}
+	dt.accordion_active, dt:hover {
+		background-color : $color-active;
+	}
+	dt.accordion_passive, dt.accordion_active {
+		cursor : pointer;
+	}
+	dd {
+		@include rems('padding', 1, 0, 1, 0);
+		@include rems('margin', 0, 0, 0, 0);
+		@include transition-property(all);
+		@include transition-duration(0.3s);
+		@include transition-timing-function(ease);
+		display : block;
+		overflow : hidden;
+		h3, p {
+			@include rems('margin', 0, 0, 1, 0);
 		}
-		dt {
-			@include rems('padding', 0, 1, 0, 1);
-			@include rems('margin', 0, 0, 0.3, 0);
-			@include rem('line-height', 3);
-			background-color : $color-passive;
-			color : #fff !important;
-			cursor : pointer;
-			display : block;
-			font-weight : normal;
-			overflow : visible;
-			text-decoration : none !important;
+		img.left {
+			@include rems('margin', 0, 1, 1, 0);
+			float : left;
 		}
-		dt:hover {
-			background-color : $color-hover;
+		img.right {
+			@include rems('margin', 0, 0, 1, 1);
+			float : right;
 		}
-		dt.accordion_active, dt:hover {
-			background-color : $color-active;
-		}
-		dt.accordion_passive, dt.accordion_active {
-			cursor : pointer;
-		}
-		dd {
-			@include rems('padding', 1, 0, 1, 0);
-			@include rems('margin', 0, 0, 0, 0);
-			@include transition-property(all);
-			@include transition-duration(0.3s);
-			@include transition-timing-function(ease);
-			display : block;
-			overflow : hidden;
-			h3, p {
-				@include rems('margin', 0, 0, 1, 0);
-			}
-			img.left {
-				@include rems('margin', 0, 1, 1, 0);
-				float : left;
-			}
-			img.right {
-				@include rems('margin', 0, 0, 1, 1);
-				float : right;
-			}
-			p {}
-		}
-		dd.accordion_closed {
-			@include rems('padding', 0, 0, 0, 0);
-			max-height : 0;
-			padding : 0;
-			visibility : hidden;
-		}
-		dd.accordion_open {
-			@include rems('padding', 1, 0, 1, 0);
-			max-height : 1000px;
-			visibility : visible;
-		}
+		p {}
+	}
+	dd.accordion_closed {
+		@include rems('padding', 0, 0, 0, 0);
+		max-height : 0;
+		padding : 0;
+		visibility : hidden;
+	}
+	dd.accordion_open {
+		@include rems('padding', 1, 0, 1, 0);
+		max-height : 1000px;
+		visibility : visible;
 	}
 }
-@media (min-width: 1200px) {}
-@media (min-width: 980px) and (max-width: 1199px) {}
-@media (min-width: 768px) and (max-width: 979px) {}
-@media (max-width: 767px) {}
-@media (max-width: 480px) {}
-@media print {}
