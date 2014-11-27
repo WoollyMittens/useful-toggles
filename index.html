@@ -75,22 +75,19 @@
 				<script src="./inc/js/useful-toggles.js"></script>
 				<script>
 				//<!--
-					var accordions = new useful.Instances(
-						document.querySelectorAll('dl.accordion'),
-						useful.Toggles,
-						{
-							'buttons' : 'dt',
-							'classes' : {
-								'active' : 'accordion_active',
-								'passive' : 'accordion_passive',
-								'open' : 'accordion_open',
-								'closed' : 'accordion_closed'
-							},
-							'grouped' : false,
-							'toggle' : true,
-							'index' : -1
-						}
-					);
+					var accordion = new useful.Toggles().init({
+						'elements' : document.querySelectorAll('dl.accordion'),
+						'buttons' : 'dt',
+						'classes' : {
+							'active' : 'accordion_active',
+							'passive' : 'accordion_passive',
+							'open' : 'accordion_open',
+							'closed' : 'accordion_closed'
+						},
+						'grouped' : false,
+						'toggle' : true,
+						'index' : -1
+					});
 				//-->
 				</script>
 				<!-- Cut above this -->
@@ -156,26 +153,30 @@
 				<script src="./inc/js/useful-toggles.js"></script>
 				<script>
 				//<!--
-					var tabs = new useful.Instances(
-						document.querySelectorAll('section.tabs menu'),
-						useful.Toggles,
-						{
-							'buttons' : 'a',
-							'classes' : {
-								'active' : 'tabs_active',
-								'passive' : 'tabs_passive',
-								'open' : 'tabs_open',
-								'closed' : 'tabs_closed'
-							},
-							'grouped' : true,
-							'toggle' : false,
-							'index' : 0,
-							'auto' : 8000
-						}
-					);
+					var tabs = new useful.Toggles().init({
+						'elements' : document.querySelectorAll('section.tabs menu'),
+						'buttons' : 'a',
+						'classes' : {
+							'active' : 'tabs_active',
+							'passive' : 'tabs_passive',
+							'open' : 'tabs_open',
+							'closed' : 'tabs_closed'
+						},
+						'grouped' : true,
+						'toggle' : false,
+						'index' : 0,
+						'auto' : 8000
+					});
 				//-->
 				</script>
 				<!-- Cut above this -->
+				<p>
+					Activate
+					<a href="javascript:tabs.instances[0].focus(0);">first</a>,
+					<a href="javascript:tabs.instances[0].focus(1);">second</a>, or
+					<a href="javascript:tabs.instances[0].focus(2);">third</a>
+					tab.
+				</p>
 
 			</aside>
 		</section>

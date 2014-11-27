@@ -31,10 +31,9 @@ To enable the use of HTML5 tags in Internet Explorer 8 and lower, include *html5
 
 ### Using vanilla JavaScript
 
-This is the safest way of starting the script, but allows for only one target element at a time.
-
 ```javascript
-var toggles = new useful.Toggles( document.getElementById('id'), {
+var toggles = new useful.Toggles().init({
+	'elements' : document.querySelectorAll('dl.accordion'),
 	'buttons' : 'dt',
 	'classes' : {
 		'active' : 'accordion_active',
@@ -44,14 +43,13 @@ var toggles = new useful.Toggles( document.getElementById('id'), {
 	},
 	'grouped' : false,
 	'toggle' : true,
-	'index' : -1,
-	'auto' : 8000
+	'index' : -1
 });
 ```
 
-**id : {string}** - The ID attribute of an element somewhere in the document.
+**elements : {DOM objects}** - A collection of DOM objects to be affected by the script.
 
-**links : {string}** - A CSS Rule that describes the toggle buttons within *parent*.
+**id : {string}** - The ID attribute of an element somewhere in the document.
 
 **grouped : {boolean}** - Determines if opening one content area, causes the rest to close.
 
@@ -61,71 +59,23 @@ var toggles = new useful.Toggles( document.getElementById('id'), {
 
 **auto : {integer}** (not implemented yet) - The interval in milliseconds of the automatic cycle.
 
-**active : {string}** - The class name used to highlight toggle buttons.
-
-**passive : {string}** - The class name used for the default state of the toggle buttons.
-
-**open : {string}** - The class name that displays the content in an open state.
-
-**closed' : {string}** - The class name that displays the content in a closed state.
-
-### Using document.querySelectorAll
-
-This method allows CSS Rules to be used to apply the script to one or more nodes at the same time.
-
-```javascript
-var toggleInstances = new useful.Instances(
-	document.querySelectorAll('dl.accordion'),
-	useful.Toggles,
-	{
-		'buttons' : 'dt',
-		'classes' : {
-			'active' : 'accordion_active',
-			'passive' : 'accordion_passive',
-			'open' : 'accordion_open',
-			'closed' : 'accordion_closed'
-		},
-		'grouped' : false,
-		'toggle' : true,
-		'index' : -1,
-		'auto' : 8000
-	}
-);
-```
-
-### Using jQuery
-
-This method is similar to the previous one, but uses jQuery for processing the CSS rule.
-
-```javascript
-var toggleInstances = [];
-$('input.color').each(function (index, element) {
-	toggleInstances[index] = new useful.Toggles( element, {
-		'buttons' : 'dt',
-		'classes' : {
-			'active' : 'accordion_active',
-			'passive' : 'accordion_passive',
-			'open' : 'accordion_open',
-			'closed' : 'accordion_closed'
-		},
-		'grouped' : false,
-		'toggle' : true,
-		'index' : -1,
-		'auto' : 8000
-	});
-	toggleInstances[index].start();
-});
-```
+**classes : {object}** - Collection of class names for the operation of the script.
++ *active : {string}* - The class name used to highlight toggle buttons.
++ *passive : {string}* - The class name used for the default state of the toggle buttons.
++ *open : {string}* - The class name that displays the content in an open state.
++ *closed' : {string}* - The class name that displays the content in a closed state.
 
 ## How to control the script
 
 ### Focus
 
 ```javascript
-toggles.focus(index);
+toggles.instances[number].focus(index);
 ```
 
 Activates a specific toggle element.
+
+**number : {integer}** - The instance number of the script.
 
 **index : {integer}** - The index of the thumbnail to centre and highlight.
 

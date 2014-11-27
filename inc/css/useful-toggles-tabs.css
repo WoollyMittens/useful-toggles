@@ -1,29 +1,29 @@
 /*
-	Constants
+Constants
 */
 /*
-	Hides text in the margin
+Hides text in the margin
 */
 /*
-	Turns a button into an icon
+Turns a button into an icon
 */
 /*
-	Centres a graphic or glyph inside an icon
+Centres a graphic or glyph inside an icon
 */
 /*
-	Offers both the pixel and rem value of a single property
+Offers both the pixel and rem value of a single property
 */
 /*
-	Offers both the pixel and rem values of a shorthand property
+Offers both the pixel and rem values of a shorthand property
 */
 /*
-	Offers the text size as both the pixel and rem value
+Offers the text size as both the pixel and rem value
 */
 /*
-	Adds vendor prefixed to a property
+Adds vendor prefixed to a property
 */
 /*
-	Applies the "clearfix" hack to a container with floating content
+Applies the "clearfix" hack to a container with floating content
 */
 /*
 	Tab Contents
@@ -110,7 +110,7 @@ section.tabs menu li a.tabs_passive:hover {
   background-color: #ff9800;
   color: #fff !important;
 }
-/* line 52, ../../src/scss/useful-toggles-tabs.scss */
+/* line 51, ../../src/scss/useful-toggles-tabs.scss */
 section.tabs menu li a.tabs_active,
 section.tabs menu li a.tabs_active:hover {
   background-color: #d45800;
@@ -189,7 +189,7 @@ section.tabs .tabs_closed {
 }
 /* line 93, ../../src/scss/useful-toggles-tabs.scss */
 section.tabs .tabs_open {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   position: relative;
   visibility: visible;

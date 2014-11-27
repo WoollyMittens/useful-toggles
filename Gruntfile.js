@@ -3,7 +3,6 @@ module.exports = function(grunt) {
 	// components
 	var name = 'toggles';
 	var libs = [
-		'../useful-instances/src/js/useful-instances.js',
 		'../useful-transitions/src/js/useful-transitions.js',
 		'../useful-polyfills/src/js/useful-polyfills.js'
 	];
