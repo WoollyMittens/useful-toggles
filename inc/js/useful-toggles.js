@@ -467,55 +467,55 @@ useful.Toggles.prototype.Articles = function (parent) {
 	// properties
 	"use strict";
 	this.parent = parent;
-	this.cfg = parent.cfg;
+	this.config = parent.config;
 	// methods
-	this.setup = function () {
+	this.init = function () {
 		// store the articles
-		this.cfg.outlets.articles = [];
+		this.config.outlets.articles = [];
 		// for all the links
-		for (var a = 0, b = this.cfg.outlets.buttons.length; a < b; a += 1) {
+		for (var a = 0, b = this.config.outlets.buttons.length; a < b; a += 1) {
 			// if this link has a href and an #
-			if (this.cfg.outlets.buttons[a].href && this.cfg.outlets.buttons[a].href.match('#')) {
+			if (this.config.outlets.buttons[a].href && this.config.outlets.buttons[a].href.match('#')) {
 				// store the referenced article
-				this.cfg.outlets.articles[a] = document.getElementById(this.cfg.outlets.buttons[a].href.split('#')[1]);
+				this.config.outlets.articles[a] = document.getElementById(this.config.outlets.buttons[a].href.split('#')[1]);
 			// else if this link is a button with a value
-			} else if (this.cfg.outlets.buttons[a].value && this.cfg.outlets.buttons[a].value.match('#')) {
+			} else if (this.config.outlets.buttons[a].value && this.config.outlets.buttons[a].value.match('#')) {
 				// store the referenced article
-				this.cfg.outlets.articles[a] = document.getElementById(this.cfg.outlets.buttons[a].value.split('#')[1]);
+				this.config.outlets.articles[a] = document.getElementById(this.config.outlets.buttons[a].value.split('#')[1]);
 			// else
 			} else {
 				// store the next sibling as the article
-				var target = this.cfg.outlets.buttons[a].nextSibling, tries = 0;
+				var target = this.config.outlets.buttons[a].nextSibling, tries = 0;
 				while (target.nodeName.match(/#/) && tries < 50) {
 					target = target.nextSibling;
 					tries += 1;
 				}
-				this.cfg.outlets.articles[a] = target;
+				this.config.outlets.articles[a] = target;
 			}
 			// apply the default class name
-			this.cfg.outlets.articles[a].className += ' ' + this.cfg.classes.closed;
+			this.config.outlets.articles[a].className += ' ' + this.config.classes.closed;
 		}
 		// initial update
 		this.update();
+		// return the object
+		return this;
 	};
 	this.update = function () {
 		// formulate regular expressions for the class names
-		var active = new RegExp(this.cfg.classes.active, 'gi');
+		var active = new RegExp(this.config.classes.active, 'gi');
 		// for each link
-		for (var a = 0, b = this.cfg.outlets.buttons.length; a < b; a += 1) {
+		for (var a = 0, b = this.config.outlets.buttons.length; a < b; a += 1) {
 			// if the element is active
-			if (this.cfg.outlets.buttons[a].className.match(active)) {
+			if (this.config.outlets.buttons[a].className.match(active)) {
 				// open its content section
-				useful.transitions.byClass(this.cfg.outlets.articles[a], this.cfg.classes.closed, this.cfg.classes.open);
+				useful.transitions.byClass(this.config.outlets.articles[a], this.config.classes.closed, this.config.classes.open);
 			// else
 			} else {
 				// close its content section
-				useful.transitions.byClass(this.cfg.outlets.articles[a], this.cfg.classes.open, this.cfg.classes.closed);
+				useful.transitions.byClass(this.config.outlets.articles[a], this.config.classes.open, this.config.classes.closed);
 			}
 		}
 	};
-	// go
-	this.setup();
 };
 
 // return as a require.js module
@@ -540,11 +540,13 @@ useful.Toggles.prototype.Automatic = function (parent) {
 	// properties
 	"use strict";
 	this.parent = parent;
-	this.cfg = parent.cfg;
+	this.config = parent.config;
 	// methods
-	this.setup = function () {
+	this.init = function () {
 		// set the event handlers for (un)pausing
 		// start the interval
+		// return the object
+		return this;
 	};
 	this.start = function () {
 		// cancel any interval
@@ -553,8 +555,6 @@ useful.Toggles.prototype.Automatic = function (parent) {
 	this.pause = function () {
 		// cancel any interval
 	};
-	// go
-	this.setup();
 };
 
 // return as a require.js module
@@ -579,20 +579,22 @@ useful.Toggles.prototype.Buttons = function (parent) {
 	// properties
 	"use strict";
 	this.parent = parent;
-	this.cfg = parent.cfg;
+	this.config = parent.config;
 	// methods
-	this.setup = function () {
+	this.init = function () {
 		// store the links in this group
-		this.cfg.outlets.buttons = useful.transitions.select(this.cfg.buttons, this.cfg.outlets.parent);
+		this.config.outlets.buttons = useful.transitions.select(this.config.buttons, this.config.outlets.parent);
 		// for each link
-		for (var a = 0, b = this.cfg.outlets.buttons.length; a < b; a += 1) {
+		for (var a = 0, b = this.config.outlets.buttons.length; a < b; a += 1) {
 			// apply the default class name
-			this.cfg.outlets.buttons[a].className += ' ' + this.cfg.classes.passive;
+			this.config.outlets.buttons[a].className += ' ' + this.config.classes.passive;
 			// set the event handlers
-			this.cfg.outlets.buttons[a].addEventListener('click', this.onClicked(a), false);
+			this.config.outlets.buttons[a].addEventListener('click', this.onClicked(a), false);
 		}
 		// initial update
 		this.update();
+		// return the object
+		return this;
 	};
 	this.onClicked = function (index) {
 		var _this = this;
@@ -605,38 +607,36 @@ useful.Toggles.prototype.Buttons = function (parent) {
 	};
 	this.change = function (index) {
 		// update the index
-		this.cfg.index = index;
+		this.config.index = index;
 		// redraw the parent
 		this.parent.update();
 	};
 	this.update = function () {
 		// formulate regular expressions for the class names
-		var passive = new RegExp(this.cfg.classes.passive, 'gi');
-		var active = new RegExp(this.cfg.classes.active, 'gi');
+		var passive = new RegExp(this.config.classes.passive, 'gi');
+		var active = new RegExp(this.config.classes.active, 'gi');
 		// for each link
-		for (var a = 0, b = this.cfg.outlets.buttons.length; a < b; a += 1) {
+		for (var a = 0, b = this.config.outlets.buttons.length; a < b; a += 1) {
 			// if this is the active index
-			if (a === this.cfg.index) {
+			if (a === this.config.index) {
 				// if toggling is allowed
-				if (this.cfg.toggle) {
+				if (this.config.toggle) {
 					// toggle the class name
-					this.cfg.outlets.buttons[a].className = (this.cfg.outlets.buttons[a].className.match(active)) ?
-						this.cfg.outlets.buttons[a].className.replace(active, this.cfg.classes.passive):
-						this.cfg.outlets.buttons[a].className.replace(passive, this.cfg.classes.active);
+					this.config.outlets.buttons[a].className = (this.config.outlets.buttons[a].className.match(active)) ?
+						this.config.outlets.buttons[a].className.replace(active, this.config.classes.passive):
+						this.config.outlets.buttons[a].className.replace(passive, this.config.classes.active);
 				// else
 				} else {
 					// activate the link
-					this.cfg.outlets.buttons[a].className = this.cfg.outlets.buttons[a].className.replace(passive, this.cfg.classes.active);
+					this.config.outlets.buttons[a].className = this.config.outlets.buttons[a].className.replace(passive, this.config.classes.active);
 				}
 			// else if grouping is allowed
-			} else if (this.cfg.grouped) {
+			} else if (this.config.grouped) {
 				// deactivate the link
-				this.cfg.outlets.buttons[a].className = this.cfg.outlets.buttons[a].className.replace(active, this.cfg.classes.passive);
+				this.config.outlets.buttons[a].className = this.config.outlets.buttons[a].className.replace(active, this.config.classes.passive);
 			}
 		}
 	};
-	// go
-	this.setup();
 };
 
 // return as a require.js module
@@ -657,21 +657,23 @@ var useful = useful || {};
 useful.Toggles = useful.Toggles || function () {};
 
 // extend the constructor
-useful.Toggles.prototype.Main = function (cfg, parent) {
+useful.Toggles.prototype.Main = function (config, context) {
 	// properties
 	"use strict";
-	this.cfg = cfg;
-	this.parent = parent;
+	this.config = config;
+	this.context = context;
 	// methods
-	this.start = function () {
-		// setup the parent
-		this.cfg.outlets = {};
-		this.cfg.outlets.parent = this.cfg.element;
-		this.cfg.index = this.cfg.index || 0;
+	this.init = function () {
+		// setup the context
+		this.config.outlets = {};
+		this.config.outlets.parent = this.config.element;
+		this.config.index = this.config.index || 0;
 		// setup the components
-		this.automatic = new this.parent.Automatic(this);
-		this.buttons = new this.parent.Buttons(this);
-		this.articles = new this.parent.Articles(this);
+		this.automatic = new this.context.Automatic(this).init();
+		this.buttons = new this.context.Buttons(this).init();
+		this.articles = new this.context.Articles(this).init();
+		// return the object
+		return this;
 	};
 	this.update = function () {
 		// update the components
@@ -682,8 +684,6 @@ useful.Toggles.prototype.Main = function (cfg, parent) {
 		// activate the element
 		this.buttons.change(index);
 	};
-	// go
-	this.start();
 };
 
 // return as a require.js module
@@ -704,32 +704,32 @@ var useful = useful || {};
 useful.Toggles = useful.Toggles || function () {};
 
 // extend the constructor
-useful.Toggles.prototype.init = function (cfg) {
+useful.Toggles.prototype.init = function (config) {
 	// properties
 	"use strict";
 	// methods
-	this.only = function (cfg) {
+	this.only = function (config) {
 		// start an instance of the script
-		return new this.Main(cfg, this);
+		return new this.Main(config, this).init();
 	};
-	this.each = function (cfg) {
-		var _cfg, instances = [];
+	this.each = function (config) {
+		var _config, _context = this, instances = [];
 		// for all element
-		for (var a = 0, b = cfg.elements.length; a < b; a += 1) {
-			// clone the cfguration
-			_cfg = Object.create(cfg);
+		for (var a = 0, b = config.elements.length; a < b; a += 1) {
+			// clone the configuration
+			_config = Object.create(config);
 			// insert the current element
-			_cfg.element = cfg.elements[a];
+			_config.element = config.elements[a];
 			// delete the list of elements from the clone
-			delete _cfg.elements;
+			delete _config.elements;
 			// start a new instance of the object
-			instances[a] = new this.Main(_cfg, this);
+			instances[a] = new this.Main(_config, _context).init();
 		}
 		// return the instances
 		return instances;
 	};
 	// return a single or multiple instances of the script
-	return (cfg.elements) ? this.each(cfg) : this.only(cfg);
+	return (config.elements) ? this.each(config) : this.only(config);
 };
 
 // return as a require.js module
