@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>useful-toggles.js: Collapsible Content</title>
+		<style>
+			html { font-family:Sans-Serif; font-size:75%; height:100%; }
+			body { _height:100%; line-height:180%; margin:0; min-height:100%; padding:1%; }
+			.example { max-width:960px; margin:0 auto; padding:0; clear:both; }
+			.example > article, .example > aside { width:98%; padding:2%; }
+			.example-left > article, .example-left > aside { width:48%; padding:1%; float:left; }
+			.example-right > article, .example-right > aside { width:48%; padding:1%; float:right; }
+		</style>
+		<!--[if lte IE 9]>
+			<meta http-equiv="imagetoolbar" content="no"/>
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+			<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<section class="example example-right">
+			<article>
+				<h2>Collapsible Content</h2>
+				<p>A collapsing "accordion" list to be used as an FAQ.</p>
+				<p><a class="button downloadButton" href="http://github.com/WoollyMittens/useful-toggles" target="_blank">Download (GitHub)</a></p>
+			</article>
+			<aside>
+
+				<!-- Cut below this -->
+				<style>@import url("./css/useful-toggles-accordion.css");</style>
+				<dl class="accordion">
+					<dt>Lorem ipsum dolor</dt>
+					<dd>
+						<img alt="" class="right" src="./img/figure_0.jpg"/>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</p>
+						<p>
+							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</dd>
+					<dt>Ut enim ad</dt>
+					<dd>
+						<img alt="" class="left" src="./img/figure_1.jpg"/>
+						<p>
+							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</p>
+						<p>
+							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</p>
+					</dd>
+					<dt>Duis aute irure</dt>
+					<dd>
+						<img alt="" class="right" src="./img/figure_2.jpg"/>
+						<p>
+							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</p>
+						<p>
+							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</p>
+					</dd>
+					<dt>Excepteur sint occaecat</dt>
+					<dd>
+						<img alt="" class="left" src="./img/figure_3.jpg"/>
+						<p>
+							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</p>
+					</dd>
+				</dl>
+				<script src="./js/useful-toggles.js"></script>
+				<script>
+				//<!--
+					var accordion = new useful.Toggles().init({
+						'elements' : document.querySelectorAll('dl.accordion'),
+						'buttons' : 'dt',
+						'classes' : {
+							'active' : 'accordion_active',
+							'passive' : 'accordion_passive',
+							'open' : 'accordion_open',
+							'closed' : 'accordion_closed'
+						},
+						'grouped' : false,
+						'toggle' : true,
+						'index' : -1
+					});
+				//-->
+				</script>
+				<!-- Cut above this -->
+
+			</aside>
+		</section>
+		<section class="example example-left">
+			<article>
+				<h2>Tabbed Content</h2>
+				<p>A collection of content grouped together into tabs.</p>
+				<p><a class="button downloadButton" href="http://github.com/WoollyMittens/useful-toggles" target="_blank">Download (GitHub)</a></p>
+			</article>
+			<aside>
+
+				<!-- Cut below this -->
+				<style>@import url("./css/useful-toggles-tabs.css");</style>
+				<section class="tabs">
+					<menu>
+						<li><a href="#lorem">Lorem ipsum dolor</a></li>
+						<li><a href="#ut">Ut enim ad</a></li>
+						<li><a href="#duis">Duis aute irure</a></li>
+					</menu>
+					<article id="lorem">
+						<img alt="" class="right" src="./img/figure_0.jpg"/>
+						<h3>Lorem ipsum dolor</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</p>
+						<p>
+							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+						<p>
+							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</p>
+					</article>
+					<article id="ut">
+						<img alt="" class="left" src="./img/figure_1.jpg"/>
+						<h3>Ut enim ad</h3>
+						<p>
+							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</p>
+						<p>
+							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</p>
+						<p>
+							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</article>
+					<article id="duis">
+						<img alt="" class="right" src="./img/figure_2.jpg"/>
+						<h3>Duis aute irure</h3>
+						<p>
+							Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						</p>
+						<p>
+							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+						</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						</p>
+					</article>
+				</section>
+				<script src="./js/useful-toggles.js"></script>
+				<script>
+				//<!--
+					var tabs = new useful.Toggles().init({
+						'elements' : document.querySelectorAll('section.tabs menu'),
+						'buttons' : 'a',
+						'classes' : {
+							'active' : 'tabs_active',
+							'passive' : 'tabs_passive',
+							'open' : 'tabs_open',
+							'closed' : 'tabs_closed'
+						},
+						'grouped' : true,
+						'toggle' : false,
+						'index' : 0,
+						'auto' : 8000
+					});
+				//-->
+				</script>
+				<!-- Cut above this -->
+				<p>
+					Activate
+					<a href="javascript:tabs[0].focus(0);">first</a>,
+					<a href="javascript:tabs[0].focus(1);">second</a>, or
+					<a href="javascript:tabs[0].focus(2);">third</a>
+					tab.
+				</p>
+
+			</aside>
+		</section>
+	</body>
+</html>
