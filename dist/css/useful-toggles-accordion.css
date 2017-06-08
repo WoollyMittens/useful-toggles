@@ -31,6 +31,7 @@ Applies the "clearfix" hack to a container with floating content
 dl.accordion {
   margin: 0 0 1em 0; }
   dl.accordion * {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box; }
   dl.accordion dt {
     padding-top: 0px;
@@ -81,8 +82,11 @@ dl.accordion {
     margin-bottom: 0rem;
     margin-left: 0px;
     margin-left: 0rem;
+    -webkit-transition-property: all;
     transition-property: all;
+    -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease;
     transition-timing-function: ease;
     display: block;
     overflow: hidden; }
