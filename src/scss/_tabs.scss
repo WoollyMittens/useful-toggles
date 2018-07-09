@@ -1,11 +1,8 @@
-
-
-@import "mixins";
 /*
 	Tab Contents
 */
 section.tabs {
-	@include rems('margin', 3, 0, 1, 0);
+	margin: 3rem 0 1rem;
 	position : relative;
 	* {
 		box-sizing: border-box;
@@ -16,8 +13,8 @@ section.tabs {
 */
 section.tabs {
 	menu {
-		@include rem('height', 3);
-		@include rem('top', -3);
+		height: 3rem;
+		top: -3rem;
 		left : 0;
 		margin : 0;
 		padding : 0;
@@ -30,17 +27,17 @@ section.tabs {
 				transition-property: all;
 				transition-duration: 0.3s;
 				transition-timing-function: ease;
-				@include rem('height', 3);
-				@include rem('line-height', 2.7);
-				@include rems('padding', 0, 1, 0, 1);
-				@include rems('margin', 0, 0.3, 0, 0);
+				height: 3rem;
+				line-height: 2.7rem;
+				padding: 0 1rem;
+				margin: 0 0.3rem 0 0;
 				background-color : $color-passive;
 				color : #fff !important;
 				float : left;
 				text-decoration : none !important;
 			}
 			a.tabs_passive {
-				@include rem('height', 2.7);
+				height: 2.7rem;
 				background-color : $color-passive;
 				color : #fff !important;
 			}
@@ -64,7 +61,7 @@ section.tabs {
 		transition-property: all;
 		transition-duration: 0.3s;
 		transition-timing-function: ease;
-		@include rems('padding', 1, 1, 1, 1);
+		padding: 1rem;
 		border : solid 3px $color-active;
 		display : block;
 		margin : 0;
@@ -74,14 +71,14 @@ section.tabs {
 		width : 100%;
 		z-index : 10;
 		h3, p {
-			@include rems('margin', 0, 0, 1, 0);
+			margin: 0 0 1rem;
 		}
 		img.left {
-			@include rems('margin', 0, 1, 1, 0);
+			margin: 0 1rem 1rem 0;
 			float : left;
 		}
 		img.right {
-			@include rems('margin', 0, 0, 1, 1);
+			margin: 0 0 1rem 1rem;
 			float : right;
 		}
 	}

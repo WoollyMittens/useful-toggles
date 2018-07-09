@@ -1,26 +1,13 @@
-/*
-	Source:
-	van Creij, Maurice (2014). "useful.toggles.js: Simple collapsible content", version 20141127, http://www.woollymittens.nl/.
-
-	License:
-	This work is licensed under a Creative Commons Attribution 3.0 Unported License.
-*/
-
-// create the constructor if needed
-var useful = useful || {};
-useful.Toggles = useful.Toggles || function () {};
-
-// extend the constructor
-useful.Toggles.prototype.Articles = function (parent) {
+// extend the class
+Toggles.prototype.Articles = function (parent) {
 
 	// PROPERTIES
-	
-	"use strict";
+
 	this.parent = parent;
 	this.config = parent.config;
 
 	// METHODS
-	
+
 	this.init = function () {
 		// store the articles
 		this.config.outlets.articles = [];
@@ -52,7 +39,7 @@ useful.Toggles.prototype.Articles = function (parent) {
 		// return the object
 		return this;
 	};
-	
+
 	this.update = function () {
 		// formulate regular expressions for the class names
 		var active = new RegExp(this.config.classes.active, 'gi');
@@ -61,17 +48,14 @@ useful.Toggles.prototype.Articles = function (parent) {
 			// if the element is active
 			if (this.config.outlets.buttons[a].className.match(active)) {
 				// open its content section
-				useful.transitions.byClass(this.config.outlets.articles[a], this.config.classes.closed, this.config.classes.open);
+				transitions.byClass(this.config.outlets.articles[a], this.config.classes.closed, this.config.classes.open);
 			// else
 			} else {
 				// close its content section
-				useful.transitions.byClass(this.config.outlets.articles[a], this.config.classes.open, this.config.classes.closed);
+				transitions.byClass(this.config.outlets.articles[a], this.config.classes.open, this.config.classes.closed);
 			}
 		}
 	};
-};
 
-// return as a require.js module
-if (typeof module !== 'undefined') {
-	exports = module.exports = useful.Toggles.Articles;
-}
+	this.init();
+};

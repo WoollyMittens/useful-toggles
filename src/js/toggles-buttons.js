@@ -1,29 +1,16 @@
-/*
-	Source:
-	van Creij, Maurice (2014). "useful.toggles.js: Simple collapsible content", version 20141127, http://www.woollymittens.nl/.
-
-	License:
-	This work is licensed under a Creative Commons Attribution 3.0 Unported License.
-*/
-
-// create the constructor if needed
-var useful = useful || {};
-useful.Toggles = useful.Toggles || function () {};
-
-// extend the constructor
-useful.Toggles.prototype.Buttons = function (parent) {
+// extend the class
+Toggles.prototype.Buttons = function (parent) {
 
 	// PROPERTIES
-	
-	"use strict";
+
 	this.parent = parent;
 	this.config = parent.config;
 
 	// METHODS
-	
+
 	this.init = function () {
 		// store the links in this group
-		this.config.outlets.buttons = useful.transitions.select(this.config.buttons, this.config.outlets.parent);
+		this.config.outlets.buttons = transitions.select(this.config.buttons, this.config.outlets.parent);
 		// for each link
 		for (var a = 0, b = this.config.outlets.buttons.length; a < b; a += 1) {
 			// apply the default class name
@@ -36,7 +23,7 @@ useful.Toggles.prototype.Buttons = function (parent) {
 		// return the object
 		return this;
 	};
-	
+
 	this.onClicked = function (index) {
 		var _this = this;
 		return function (event) {
@@ -46,14 +33,14 @@ useful.Toggles.prototype.Buttons = function (parent) {
 			event.preventDefault();
 		};
 	};
-	
+
 	this.change = function (index) {
 		// update the index
 		this.config.index = index;
 		// redraw the parent
 		this.parent.update();
 	};
-	
+
 	this.update = function () {
 		// formulate regular expressions for the class names
 		var passive = new RegExp(this.config.classes.passive, 'gi');
@@ -80,9 +67,6 @@ useful.Toggles.prototype.Buttons = function (parent) {
 			}
 		}
 	};
-};
 
-// return as a require.js module
-if (typeof module !== 'undefined') {
-	exports = module.exports = useful.Toggles.Buttons;
-}
+	this.init();
+};
