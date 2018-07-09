@@ -16,7 +16,7 @@ Toggles.prototype.Buttons = function (parent) {
 			// apply the default class name
 			this.config.outlets.buttons[a].className += ' ' + this.config.classes.passive;
 			// set the event handlers
-			this.config.outlets.buttons[a].addEventListener('click', this.onClicked(a), false);
+			this.config.outlets.buttons[a].addEventListener('click', this.onClicked.bind(this, a), false);
 		}
 		// initial update
 		this.update();
@@ -24,14 +24,11 @@ Toggles.prototype.Buttons = function (parent) {
 		return this;
 	};
 
-	this.onClicked = function (index) {
-		var _this = this;
-		return function (event) {
-			// change the active index
-			_this.change(index);
-			// cancel the click
-			event.preventDefault();
-		};
+	this.onClicked = function (index, event) {
+		// change the active index
+		this.change(index);
+		// cancel the click
+		event.preventDefault();
 	};
 
 	this.change = function (index) {
