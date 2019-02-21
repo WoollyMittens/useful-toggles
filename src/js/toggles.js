@@ -34,6 +34,5 @@ var Toggles = function (config) {
 };
 
 // return as a require.js module
-if (typeof module !== 'undefined') {
-	exports = module.exports = Toggles;
-}
+if (typeof define != 'undefined') define(['toggles'], function () { return Toggles });
+if (typeof module != 'undefined') module.exports = Toggles;
