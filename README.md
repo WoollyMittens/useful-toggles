@@ -16,7 +16,26 @@ The stylesheet is best included in the header of the document.
 This include can be added to the header or placed inline before the script is invoked.
 
 ```html
-<script src="./js/toggles.js"></script>
+<script src="lib/transitions.js"></script>
+<script src="js/toggles.js"></script>
+```
+
+Or use [Require.js](https://requirejs.org/).
+
+```js
+requirejs([
+	'lib/transitions.js',
+	'js/toggles.js'
+], function(transitions, Toggles) {
+	...
+});
+```
+
+Or import into an MVC framework.
+
+```js
+var transitions = require('lib/transitions.js');
+var Toggles = require('js/toggles.js');
 ```
 
 ## How to start the script
